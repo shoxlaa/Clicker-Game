@@ -4,18 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clicker_Game" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance local:MainViewModel}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#FF2F2E2E">
     <Grid>
         <StackPanel >
-            <Button IsEnabled="{Binding StartEnabled}" Height="40" Width="90" Command="{Binding StartCommand}"> Start </Button>
-            <Button IsEnabled="{Binding Enabled}" Height="40" Width="90" Command="{Binding ClickMeCommand}"> Cleack me  </Button>
-            <TextBlock Height="20" Width="90" > Differce</TextBlock>
-            <TextBlock Height="40" Width="90" Text="{Binding Dif}"></TextBlock>
-            <Label  Background="{Binding Color}" ></Label>
-            <TextBlock Text="Avarage"> </TextBlock>
-            <TextBlock Text="{Binding Avg}"> </TextBlock>
+            <Button IsEnabled="{Binding StartEnabled}" Height="40" Width="100" Margin="10" Command="{Binding StartCommand}"> Start </Button>
+            <Button IsEnabled="{Binding Enabled}" Height="40" Width="100" Margin="10" Command="{Binding ClickMeCommand}"> Cleack me  </Button>
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Height="40" Width="90" FontFamily="Arial Black" FontSize="16" Margin="10"  Foreground="#FFFBF8F8" > Differce</TextBlock>
+                <TextBlock Height="40" Width="90" Text="{Binding Dif}"  FontSize="16"  FontFamily="Arial Black" Foreground="#FFFBF8F8"></TextBlock>
+            <TextBlock Height="40"  Text=" Played Games"  FontFamily="Arial Black"  FontSize="16" Margin="10" Foreground="#FFFBF8F8" ></TextBlock>
+                <TextBlock Height="40"  Text="{Binding Count}"  FontFamily="Arial Black"  FontSize="16" Margin="10" Foreground="#FFFBF8F8" ></TextBlock> 
+
+            </StackPanel>
+            <Label Height="40" Background="{Binding Color}" ></Label>
+            <TextBlock Text="Avarage" Foreground="#FFFBF8F8" FontFamily="Arial Black"  Margin="10" FontSize="16"> </TextBlock>
+            <TextBlock Text="{Binding Avg}" Foreground="#FFFBF8F8"  Margin="10" FontFamily="Arial Black" FontSize="12"> </TextBlock>
         </StackPanel>
     </Grid>
 </Window>

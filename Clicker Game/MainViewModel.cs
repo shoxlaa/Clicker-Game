@@ -26,7 +26,8 @@ namespace Clicker_Game
         bool _startEnabled = true;
         [ObservableProperty] 
         double _avg = 0;
-
+        double _sum = 0;
+        [ObservableProperty]
         int _count = 0;
         [ICommand]
         void Start()
@@ -39,7 +40,7 @@ namespace Clicker_Game
                 Enabled = true;
                 Color = Brushes.Green;
                 Begin = DateTime.Now; 
-                _count++;
+                Count++;
             })
             {
                 IsBackground = true
@@ -53,8 +54,8 @@ namespace Clicker_Game
             Color = Brushes.Aqua;
             StartEnabled = true;
             Enabled = false;
-            Avg += Dif;
-            Avg /= _count;
+            _sum += Dif;
+            Avg =_sum/ _count;
         }
     }
 }
