@@ -22,16 +22,24 @@ namespace Clicker_Game
         Brush _color = Brushes.Aqua;
         [ObservableProperty] 
         bool _enabled = false;
+        [ObservableProperty] 
+        bool _startEnabled = true;
+        [ObservableProperty] 
+        double _avg = 0;
+
+        int _count = 0;
         [ICommand]
         void Start()
         {
             Thread Change = new Thread(() =>
             {
+                StartEnabled = false;
                 Color = Brushes.Red;
-                Thread.Sleep(random.Next(2000, 7000));
+                Thread.Sleep(random.Next(1000, 7000));
                 Enabled = true;
                 Color = Brushes.Green;
-                Begin = DateTime.Now;
+                Begin = DateTime.Now; 
+                _count++;
             })
             {
                 IsBackground = true
@@ -43,7 +51,10 @@ namespace Clicker_Game
         {
             Dif = (DateTime.Now - Begin).TotalSeconds;
             Color = Brushes.Aqua;
+            StartEnabled = true;
             Enabled = false;
+            Avg += Dif;
+            Avg /= _count;
         }
     }
 }

@@ -9,11 +9,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel >
-            <Button Height="40" Width="90" Command="{Binding StartCommand}"> Start </Button>
+            <Button IsEnabled="{Binding StartEnabled}" Height="40" Width="90" Command="{Binding StartCommand}"> Start </Button>
             <Button IsEnabled="{Binding Enabled}" Height="40" Width="90" Command="{Binding ClickMeCommand}"> Cleack me  </Button>
             <TextBlock Height="20" Width="90" > Differce</TextBlock>
             <TextBlock Height="40" Width="90" Text="{Binding Dif}"></TextBlock>
             <Label  Background="{Binding Color}" ></Label>
+            <TextBlock Text="Avarage"> </TextBlock>
+            <TextBlock Text="{Binding Avg}"> </TextBlock>
         </StackPanel>
     </Grid>
 </Window>
