@@ -36,7 +36,7 @@ namespace Clicker_Game
             {
                 StartEnabled = false;
                 Color = Brushes.Red;
-                Thread.Sleep(random.Next(1000, 7000));
+                Thread.Sleep(random.Next(1000, 5000));
                 Enabled = true;
                 Color = Brushes.Green;
                 Begin = DateTime.Now; 
@@ -52,10 +52,12 @@ namespace Clicker_Game
         {
             Dif = (DateTime.Now - Begin).TotalSeconds;
             Color = Brushes.Aqua;
-            StartEnabled = true;
+            StartEnabled = true; 
+
             Enabled = false;
             _sum += Dif;
-            Avg =_sum/ _count;
+            Avg =_sum/ _count; 
+            
         }
     }
 }
